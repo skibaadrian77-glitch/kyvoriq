@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Logo from "@/components/ui/Logo";
 
 export default function IntroLoader() {
   const [visible, setVisible] = useState(true);
@@ -9,11 +10,11 @@ export default function IntroLoader() {
   useEffect(() => {
     const leaveTimer = window.setTimeout(() => {
       setLeaving(true);
-    }, 1150);
+    }, 1250);
 
     const removeTimer = window.setTimeout(() => {
       setVisible(false);
-    }, 1850);
+    }, 1950);
 
     return () => {
       window.clearTimeout(leaveTimer);
@@ -32,8 +33,8 @@ export default function IntroLoader() {
         leaving ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6d5eff]/10 blur-[140px]" />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6d5eff]/[0.12] blur-[150px]" />
 
         <div
           className="absolute inset-0 opacity-[0.025]"
@@ -43,19 +44,32 @@ export default function IntroLoader() {
             backgroundSize: "72px 72px",
           }}
         />
+
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/50 to-transparent" />
       </div>
 
-      <div className="relative text-center">
-        <p className="animate-[loaderLogo_1s_cubic-bezier(0.22,1,0.36,1)_both] text-2xl font-semibold tracking-[0.42em] text-white sm:text-3xl">
-          KYVORIQ
-        </p>
+      <div className="relative flex flex-col items-center text-center">
+        <div className="relative">
+          <div className="absolute inset-0 scale-[1.4] rounded-full bg-[#6d5eff]/15 blur-[35px]" />
 
-        <div className="mx-auto mt-7 h-px w-36 overflow-hidden bg-white/10">
-          <div className="h-full w-full origin-left animate-[loaderLine_1.15s_cubic-bezier(0.22,1,0.36,1)_both] bg-gradient-to-r from-white/30 to-[#8f84ff]" />
+          <Logo
+            variant="gradient"
+            className="relative h-20 w-auto animate-[loaderMark_.9s_cubic-bezier(0.22,1,0.36,1)_both] sm:h-24"
+          />
         </div>
 
-        <p className="mt-5 animate-[loaderLabel_.8s_.25s_ease_both] text-[9px] tracking-[0.3em] text-white/25">
-          DIGITAL STUDIO
+        <div className="mt-7 overflow-hidden">
+          <p className="animate-[loaderWordmark_.8s_.18s_cubic-bezier(0.22,1,0.36,1)_both] text-xl font-semibold tracking-[0.38em] text-white sm:text-2xl">
+            KYVORIQ
+          </p>
+        </div>
+
+        <div className="mt-7 h-px w-40 overflow-hidden bg-white/10">
+          <div className="h-full w-full origin-left animate-[loaderLine_1.05s_.15s_cubic-bezier(0.22,1,0.36,1)_both] bg-gradient-to-r from-white/20 via-[#9f7aea] to-[#6d5eff]" />
+        </div>
+
+        <p className="mt-5 animate-[loaderLabel_.7s_.4s_ease_both] text-[9px] tracking-[0.3em] text-white/25">
+          WEB DESIGN & DEVELOPMENT
         </p>
       </div>
     </div>
