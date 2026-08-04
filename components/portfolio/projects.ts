@@ -8,6 +8,7 @@ export type PortfolioProject = {
   image: string;
   imageAlt: string;
   href: string;
+  isOffline?: boolean;
 };
 
 export const projects: PortfolioProject[] = [
@@ -22,5 +23,6 @@ export const projects: PortfolioProject[] = [
     image: "/projects/carokot-joga.jpg",
     imageAlt: "Projekt strony internetowej Carokot Joga",
     href: "/projekty/carokot-joga",
+    isOffline: true,
   },
 ];
