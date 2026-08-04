@@ -93,7 +93,7 @@ export default function Process() {
         />
 
         <div className="relative mt-16 sm:mt-20">
-          <div className="pointer-events-none absolute left-[8%] right-[8%] top-9 hidden h-px bg-gradient-to-r from-[#7c3aed]/30 via-[#63d8ff]/20 to-[#4ade80]/25 xl:block" />
+          
 
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {processSteps.map((step, index) => {
